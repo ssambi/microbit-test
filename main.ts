@@ -1,6 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     state = !(state)
-    music.play(music.tonePlayable(523, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+    music.play(music.tonePlayable(523, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
 })
 let state = false
 state = false
