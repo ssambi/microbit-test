@@ -1,15 +1,23 @@
 input.onButtonPressed(Button.A, function () {
-    state = !(state)
-    music.play(music.tonePlayable(523, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
+	
 })
+let setpoint = 45
 let state = false
-state = false
 basic.forever(function () {
+    basic.clearScreen()
+    if (input.temperature() > setpoint) {
+        state = false
+    } else {
+        state = true
+    }
+    basic.pause(1000)
     if (state) {
-        pins.digitalWritePin(DigitalPin.P0, 1)
+        pins.digitalWritePin(DigitalPin.P0, 0)
         basic.showIcon(IconNames.Yes)
     } else {
-        pins.digitalWritePin(DigitalPin.P0, 0)
+        pins.digitalWritePin(DigitalPin.P0, 1)
         basic.showIcon(IconNames.No)
     }
+    basic.clearScreen()
+    basic.showNumber(input.temperature())
 })
