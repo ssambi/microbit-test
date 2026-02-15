@@ -1,7 +1,13 @@
 input.onButtonPressed(Button.A, function () {
-	
+    setpoint = setpoint - 1
+    basic.showNumber(setpoint)
 })
-let setpoint = 45
+input.onButtonPressed(Button.B, function () {
+    setpoint = setpoint + 1
+    basic.showNumber(setpoint)
+})
+let setpoint = 0
+setpoint = 37
 let state = false
 basic.forever(function () {
     basic.clearScreen()
